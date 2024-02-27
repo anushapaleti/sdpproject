@@ -1,0 +1,33 @@
+{% extends 'Navbar.html' %}<!--exteds is a keyword and navbar is the file which we want to inherit-->
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+<div class="container text-center">
+  <div class="row">
+    <div class="col order-last">
+      First in DOM, no order applied
+        <div>
+  <form method="post" action="{% url 'random123' %}">
+      {%csrf_token%}
+      <label>Enter name:</label>
+      <input type="text" name="input1"required>
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+    </div>
+    <div class="col">
+      Second in DOM, with a larger order
+        <br><h1>{{result_str}}</h1>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+</body>
+</html>
